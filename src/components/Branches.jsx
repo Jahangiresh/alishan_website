@@ -28,7 +28,7 @@ const Branches = () => {
     },
   ];
   return (
-    <div className="branches">
+    <div id="activity" className="branches">
       <div className="branches__container my-container">
         <div className="branches__container__header">
           <div className="branches__container__header__content">

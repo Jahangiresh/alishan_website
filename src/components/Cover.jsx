@@ -2,7 +2,7 @@ import React from "react";
 import romb from "../assets/images/rombDesign.svg";
 const Cover = () => {
   return (
-    <div className="cover bg-green">
+    <div id="mainpage" className="cover bg-green">
       <div className="cover__container my-container">
         <div className="cover__container__content">
           <h1 className="cover__container__content__title txt-slogan">

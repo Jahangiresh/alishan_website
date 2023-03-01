@@ -69,6 +69,7 @@
     width: 100%;
     padding: 62px 0;
     position: relative;
+
     &:hover {
       .romb__img__left {
         left: 50%;
@@ -168,7 +169,7 @@
           height: auto;
         }
         &__image {
-          height: 233px;
+          height: 100%;
           width: 469px;
           position: relative;
           @media (max-width: $mobileWidth) {
@@ -252,4 +253,15 @@
       }
     }
   }
+}
+.copyright {
+  background: #00513e;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 200;
+  text-transform: lowercase;
+  white-space: 10px;
 }

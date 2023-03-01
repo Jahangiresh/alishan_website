@@ -4,6 +4,7 @@ import Drawer from "@mui/material/Drawer";
 import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 export default function MenuDrawer() {
   const [state, setState] = React.useState({
     top: false,
@@ -34,10 +35,26 @@ export default function MenuDrawer() {
         <RxCross2 className="menu__header__x" />
       </div>
       <ul className="menu__ul">
-        <li className="menu__ul__li">Ana səhifə</li>
-        <li className="menu__ul__li">Haqqımızda</li>
-        <li className="menu__ul__li">Fəaliyyətimiz</li>
-        <li className="menu__ul__li">Əlaqə</li>
+        <li className="menu__ul__li">
+          <AnchorLink className="default-link" offset="100" href="#main">
+            Ana səhifə
+          </AnchorLink>
+        </li>
+        <li className="menu__ul__li">
+          <AnchorLink className="default-link" offset="100" href="#about">
+            Haqqımızda
+          </AnchorLink>
+        </li>
+        <li className="menu__ul__li">
+          <AnchorLink className="default-link" offset="100" href="#activity">
+            Fəaliyyətimiz
+          </AnchorLink>
+        </li>
+        <li className="menu__ul__li">
+          <AnchorLink className="default-link" offset="100" href="#contact">
+            Əlaqə
+          </AnchorLink>
+        </li>
       </ul>
       <hr />
       <ul className="menu__ul">

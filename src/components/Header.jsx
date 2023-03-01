@@ -3,7 +3,13 @@ import "../assets/css/header.scss";
 import logoSvg from "../assets/images/logo.svg";
 import { GrLanguage } from "react-icons/gr";
 import MenuDrawer from "./MenuDrawer";
+import { useTranslation } from "react-i18next";
+import HeaderLangs from "./HeaderLangs";
+
+import AnchorLink from "react-anchor-link-smooth-scroll";
 const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="header">
       <div className="header__container my-container">
@@ -14,12 +20,30 @@ const Header = () => {
           <MenuDrawer />
         </span>
         <ul className="header__container__navs">
-          <li className="header__container__navs__li ">ana səhifə</li>
-          <li className="header__container__navs__li ">haqqımızda</li>
-          <li className="header__container__navs__li ">fəaliyyətimiz</li>
-          <li className="header__container__navs__li ">əlaqə</li>
           <li className="header__container__navs__li ">
+            {" "}
+            <AnchorLink className="default-link" offset="100" href="#mainpage">
+              {t("Ana səhifə")}
+            </AnchorLink>
+          </li>
+          <li className="header__container__navs__li ">
+            <AnchorLink className="default-link" offset="100" href="#about">
+              {t("Haqqımızda")}
+            </AnchorLink>
+          </li>
+          <li className="header__container__navs__li ">
+            <AnchorLink className="default-link" offset="100" href="#activity">
+              {t("Fəaliyyətimiz")}
+            </AnchorLink>
+          </li>
+          <li className="header__container__navs__li ">
+            <AnchorLink className="default-link" offset="100" href="#contact">
+              {t("Əlaqə")}
+            </AnchorLink>
+          </li>
+          <li className="header__container__navs__li pos-rel lang__li">
             <GrLanguage />
+            <HeaderLangs />
           </li>
         </ul>
       </div>

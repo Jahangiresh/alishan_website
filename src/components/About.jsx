@@ -1,11 +1,14 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import rombRight from "../assets/images/rombLittle.svg";
 import rombLeft from "../assets/images/rombLittleLeft.svg";
 const About = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className="about">
+    <div id="about" className="about">
       <div className="about__content">
-        <h2 className="txt-title about__content__title">haqqımızda</h2>
+        <h2 className="txt-title about__content__title">{t("Haqqımızda")}</h2>
         <p className="txt-text m-0">
           “Alishan” şirkəti 20.07.1995-ci ildən qeydiyyata alınmışdır.
           Şirkətimizin direktoru Adil İsa Vahid oğludur. “Alishan” şirkətinin

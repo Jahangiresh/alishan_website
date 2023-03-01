@@ -64,3 +64,28 @@
     }
   }
 }
+
+.icon {
+  color: white;
+
+  font-size: 20px;
+}
+
+.headerlangs {
+  position: absolute;
+  right: 0;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+  display: none;
+  &__li{
+    list-style: none;
+  }
+}
+.lang__li {
+  &:hover {
+    .headerlangs {
+      display: block;
+    }
+  }
+}
