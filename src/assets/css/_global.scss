@@ -1,0 +1,43 @@
+@use "./abstracts/" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $fontFamily;
+}
+.my-container {
+  margin: 0 auto;
+  max-width: 84%;
+
+  @media (max-width: $mobileWidth) {
+    max-width: 90.7%;
+  }
+}
+.layout__app {
+  .txt-title {
+    color: $textPrimaryBlack;
+    font-weight: 600;
+    font-size: $fontSizeMedium;
+  }
+  .txt-text {
+    color: $textSecondaryBlack;
+    font-weight: 400;
+    font-size: $fontSizeNormal;
+  }
+  .txt-slogan {
+    font-size: $fontSizeLarge;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .bg-green {
+    background: $green;
+  }
+  .txt-green {
+    color: $green;
+  }
+  .txt-bold {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,21 @@
+.settings__label {
+  float: left;
+}
+.settings__input {
+  float: left;
+  outline: none;
+  border: 1px solid #e3e3e3;
+}
+.settings__button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: 200ms;
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
