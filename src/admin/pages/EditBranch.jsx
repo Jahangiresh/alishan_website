@@ -4,15 +4,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQ":
       return { ...state, loader: true };
     case "FETCH_SUCCES":
-      return { ...state, advocate: action.payload, loader: false };
+      return { ...state, branch: action.payload, loader: false };
     case "FETCH_FAIL":
       return { ...state, error: true };
     default:
@@ -20,22 +17,20 @@ const reducer = (state, action) => {
   }
 };
 
-const EditAdvocate = () => {
-  const [{ loading, error, advocate }, dispatch] = useReducer(reducer, {
+const EditBranch = () => {
+  const [{ loading, error, branch }, dispatch] = useReducer(reducer, {
     advocate: {},
     loading: true,
     error: false,
   });
   const params = useParams();
   const id = params.id;
-
   useEffect(() => {
-    const getAdvocate = async () => {
+    const getBranch = async () => {
       dispatch({ type: "FETCH_REQ" });
-
       try {
         const resp = await axios.get(
-          `https://defendovb.az/api/v1/lawyers/${id}`
+          `https://alishancompany.az/api/branch/${id}`
         );
 
         dispatch({ type: "FETCH_SUCCES", payload: resp.data });
@@ -44,41 +39,50 @@ const EditAdvocate = () => {
         alert("err");
       }
     };
-    getAdvocate();
+    getBranch();
   }, []);
 
   const formik = useFormik({
     initialValues: {
-      firstName: advocate.firstName,
-      lastName: advocate.lastName,
-      email: advocate.email,
-      phoneNumber: advocate.phoneNumber,
-      moreInfo: advocate.moreInfo,
-      image: advocate.image,
-      id: advocate.id,
+      name: branch && branch.name,
+      email: branch && branch.email,
+      telephone: branch && branch.telephone,
+      image: branch && branch.image,
+      website: branch && branch.website,
+      id: branch && branch.id,
     },
     onSubmit: async (values) => {
+      const { token } = localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))
+        : "";
       try {
-        await axios.put(`https://defendovb.az/api/v1/lawyers/${id}`, {
-          firstName: values.firstName,
-          lastName: values.lastName,
-          email: values.email,
-          phoneNumber: values.phoneNumber,
-          moreInfo: values.moreInfo,
-          image: values.image,
-        });
-        toast.success("Vəkil dəyişildi");
+        await axios.put(
+          `https://alishancompany.az/api/branch/${id}`,
+          {
+            name: values.name,
+            email: values.email,
+            telephone: values.telephone,
+            website: values.website,
+            image: values.image,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        toast.success("filial dəyişildi");
 
-        window.location = "/admindfnd001907/advocates";
+        window.location = "/admindfnd001907/branches";
       } catch (error) {
-        toast.error(error.response.data.Detail);
+        toast.error("sonra cəhd edin!");
       }
     },
   });
   return (
     <div>
       <div className="createadvocates">
-  
         <div>
           <Toaster />
         </div>
@@ -106,19 +110,7 @@ const EditAdvocate = () => {
             type="text"
             onChange={formik.handleChange}
             // value={formik.values.firstName}
-            defaultValue={advocate.firstName}
-          />
-          <label className="createadvocates__forms__label" htmlFor="lastName">
-            soy ad
-          </label>
-          <input
-            className="createadvocates__forms__input"
-            id="lastName"
-            name="lastName"
-            type="text"
-            // value={formik.values.lastName}
-            onChange={formik.handleChange}
-            defaultValue={advocate.lastName}
+            defaultValue={branch && branch.name}
           />
           <label className="createadvocates__forms__label" htmlFor="email">
             Email
@@ -130,7 +122,7 @@ const EditAdvocate = () => {
             type="email"
             onChange={formik.handleChange}
             // value={formik.values.email}
-            defaultValue={advocate.email}
+            defaultValue={branch && branch.email}
           />{" "}
           <label
             className="createadvocates__forms__label"
@@ -145,13 +137,13 @@ const EditAdvocate = () => {
             type="phoneNumber"
             onChange={formik.handleChange}
             // value={formik.values.phoneNumber}
-            defaultValue={advocate.phoneNumber}
+            defaultValue={branch && branch.telephone}
           />
           <label
             className="createadvocates__forms__label"
             htmlFor="phoneNumber"
           >
-            məlumat
+            website
           </label>
           <input
             className="createadvocates__forms__input"
@@ -159,7 +151,7 @@ const EditAdvocate = () => {
             name="moreInfo"
             type="moreInfo"
             onChange={formik.handleChange}
-            defaultValue={advocate.moreInfo}
+            defaultValue={branch && branch.webSite}
           />
           <button className="createadvocates__forms__button" type="submit">
             Submit
@@ -170,4 +162,4 @@ const EditAdvocate = () => {
   );
 };
 
-export default EditAdvocate;
+export default EditBranch;

@@ -7,9 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* {pathname.includes("/admindfnd001907") ? <AdminLayout /> : <Layout />}
-       */}
-      <Layout />
+      {pathname.includes("/admindfnd001907") ? <AdminLayout /> : <Layout />}
     </div>
   );
 }

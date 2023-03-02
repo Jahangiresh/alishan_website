@@ -17,7 +17,6 @@ const Login = () => {
 
   return (
     <div className="login">
-     
       <h1>login</h1>
       <div className="login__inputs">
         <label htmlFor="username">username or email</label>

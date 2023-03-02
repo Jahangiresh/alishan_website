@@ -5,33 +5,23 @@ import "../admin/scss/App.scss";
 import Dashboard from "../admin/pages/Dashboard";
 import MainLayout from "../admin/layout/MainLayout";
 import Login from "../admin/pages/Login";
-import Settings from "../admin/pages/Settings";
-import Services from "../admin/pages/Services";
-import ServiceDetails from "../admin/pages/ServiceDetails";
-import CreateService from "../admin/pages/CreateService";
-import Advocates from "../admin/pages/Advocates";
-import CreateAdvocate from "../admin/pages/CreateAdvocate";
-import EditAdvocate from "../admin/pages/EditAdvocate";
+import Advocates from "../admin/pages/Branches";
+import CreateAdvocate from "../admin/pages/CreateBranch";
+import EditAdvocate from "../admin/pages/EditBranch";
 import AuthService from "../admin/services/AuthService";
-import Blogs from "../admin/pages/Blogs";
-import CreateBlog from "../admin/pages/CreateBlog";
-import EditBlog from "../admin/pages/EditBlog";
-import Slides from "../admin/pages/Slides";
-import CreateSlide from "../admin/pages/CreateSlide";
-import EditSlide from "../admin/pages/EditSlide";
-import CreateSetting from "../admin/pages/CreateSetting";
-import SettingDetails from "../admin/pages/SettingDetails";
+import CreateBranch from "../admin/pages/CreateBranch";
+import EditBranch from "../admin/pages/EditBranch";
 
 const AdminLayout = () => {
   let user1 = localStorage.getItem("user");
 
   const checkTokenExpiration = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (user && user.accessToken) {
-      const decodedToken = parseJwt(user.accessToken);
+    if (user && user.token) {
+      const decodedToken = parseJwt(user.token);
       if (decodedToken.exp * 1000 < Date.now()) {
         try {
-          await AuthService.refreshToken();
+          // await AuthService.refreshToken();
           user1 = localStorage.getItem("user");
         } catch (error) {
           AuthService.logout();
@@ -72,55 +62,17 @@ const AdminLayout = () => {
           {user1 ? (
             <Route path="/admindfnd001907" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
-              <Route path="/admindfnd001907/services" element={<Services />} />
-              <Route path="/admindfnd001907/blogs" element={<Blogs />} />
               <Route
-                path="/admindfnd001907/blogs/create"
-                element={<CreateBlog />}
+                path="/admindfnd001907/branches/create"
+                element={<CreateBranch />}
               />
               <Route
-                path="/admindfnd001907/services/:id"
-                element={<ServiceDetails />}
+                path="/admindfnd001907/branches/:id"
+                element={<EditBranch />}
               />
-              <Route
-                path="/admindfnd001907/setting/:id"
-                element={<SettingDetails />}
-              />
-              <Route
-                path="/admindfnd001907/service/create"
-                element={<CreateService />}
-              />
-              <Route
-                path="/admindfnd001907/advocates/create"
-                element={<CreateAdvocate />}
-              />
-              <Route
-                path="/admindfnd001907/advocates/:id"
-                element={<EditAdvocate />}
-              />
-              <Route path="/admindfnd001907/blogs/:id" element={<EditBlog />} />
 
               {/* <Route path="/admin/login" element={<Login />} /> */}
-              <Route path="/admindfnd001907/slides" element={<Slides />} />
-              <Route
-                path="/admindfnd001907/slides/create"
-                element={<CreateSlide />}
-              />
-              <Route
-                path="/admindfnd001907/slides/:id"
-                element={<EditSlide />}
-              />
-
-              <Route path="/admindfnd001907/services" element={<Services />} />
-              <Route path="/admindfnd001907/setting" element={<Settings />} />
-              <Route
-                path="/admindfnd001907/setting/create"
-                element={<CreateSetting />}
-              />
-              <Route
-                path="/admindfnd001907/advocates"
-                element={<Advocates />}
-              />
+              <Route path="/admindfnd001907/branches" element={<Advocates />} />
             </Route>
           ) : (
             <Route path="/admindfnd001907" element={<Login />} />

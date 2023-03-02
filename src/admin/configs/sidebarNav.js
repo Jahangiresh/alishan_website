@@ -7,36 +7,10 @@ const sidebarNav = [
   },
 
   {
-    link: "/admindfnd001907/services",
-    section: "Services",
-    icon: <i className="bx bx-receipt"></i>,
-    text: "Servislər",
-  },
-  {
-    link: "/admindfnd001907/blogs",
-    section: "blogs",
-    icon: <i className="bx bx-receipt"></i>,
-    text: "Bloglar",
-  },
-  {
-    link: "/admindfnd001907/slides",
-    section: "slides",
-    icon: <i className="bx bx-receipt"></i>,
-    text: "Slides",
-  },
-
-  {
-    link: "/admindfnd001907/advocates",
-    section: "advocates",
+    link: "/admindfnd001907/branches",
+    section: "branches",
     icon: <i className="bx bx-cube"></i>,
-    text: "Vəkillər",
-  },
-
-  {
-    link: "/admindfnd001907/setting",
-    section: "setting",
-    icon: <i className="bx bx-cog"></i>,
-    text: "Setting",
+    text: "Filiallar",
   },
 ];
 

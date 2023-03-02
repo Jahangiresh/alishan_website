@@ -15,40 +15,37 @@ import {
 import "../scss/adminadvocates.scss";
 import Swal from "sweetalert2";
 
-import parse from "html-react-parser";
-
+import { useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import {
-  getAllBlogs,
-  deleteBlog,
+  getAllBranches,
   getStatus,
   getIsDeleting,
-} from "../../features/blogSlice";
-import { useNavigate } from "react-router-dom";
+  deleteBranch,
+} from "../../features/branchSlice";
 
-export default function Blogs() {
+export default function Branches() {
   const navigate = useNavigate();
-  const blogs = useSelector(getAllBlogs);
+  const branches = useSelector(getAllBranches);
   const status = useSelector(getStatus);
   const isDeleting = useSelector(getIsDeleting);
-
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Əminsən?",
+      text: "silnən data geri qayıtmır!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Sil!",
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(deleteBlog(id));
-        setTimeout(() => {
-          window.location.reload(false);
-        }, 700);
+        dispatch(deleteBranch(id));
+        window.location.reload(false);
+
         if (isDeleting) {
-          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          Swal.fire("Silindi!", "Data silindi.", "success");
         }
       }
     });
@@ -56,45 +53,45 @@ export default function Blogs() {
 
   return (
     <TableContainer component={Paper} className="adminadvocates">
-    
+      <div>
+        <Toaster />
+      </div>
+
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Image</TableCell>
-            <TableCell align="left">title</TableCell>
+            <TableCell align="right">name</TableCell>
+            <TableCell align="right">email</TableCell>
             <TableCell align="right">
               <span>edit</span>/<span>delete</span>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {blogs.map((blog) => (
+          {branches.map((branch) => (
             <TableRow
-              key={blog.id}
+              key={branch.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
                 <img
                   className="adminadvocates__img"
-                  src={`https://defendovb.az/api/v1/files?filepath=${blog.image.filePath}`}
-                  alt="img"
+                  src={`https://alishancompany.az/images/${branch.imagePath}`}
+                  alt=""
                 />
               </TableCell>
-              <TableCell align="left">
-                {blog.title > 20 ? blog.title.slice(0, 20) + "..." : blog.title}
-              </TableCell>
-              {/* <TableCell align="left">
-                {parse(blog.body) > 25
-                  ? parse(blog.body).slice(0, 25) + "..."
-                  : parse(blog.body)}
-              </TableCell> */}
+              <TableCell align="right">{branch.name}</TableCell>
+              <TableCell align="right">{branch.email}</TableCell>
               <TableCell align="right" className="adminadvocates__icons">
                 <AiOutlineEdit
-                  onClick={() => navigate(`/admindfnd001907/blogs/${blog.id}`)}
+                  onClick={() =>
+                    navigate(`/admindfnd001907/branches/${branch.id}`)
+                  }
                   className="edit__icons"
                 />
                 <AiOutlineDelete
-                  onClick={() => handleDelete(blog.id)}
+                  onClick={() => handleDelete(branch.id)}
                   className="edit__icons"
                 />
               </TableCell>
@@ -103,10 +100,10 @@ export default function Blogs() {
         </TableBody>
       </Table>
       <button
-        onClick={() => navigate("/admindfnd001907/blogs/create")}
+        onClick={() => navigate("/admindfnd001907/branches/create")}
         className="adminadvocates__add"
       >
-        blog əlavə et <AiOutlinePlusCircle className="plus__icon" />
+        filial əlavə et <AiOutlinePlusCircle className="plus__icon" />
       </button>
     </TableContainer>
   );

@@ -4,25 +4,13 @@ import App from "./App";
 import "./i18next";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import teamSlice, { teamFetch } from "./features/teamSlice";
-import serviceSlice, { serviceFetch } from "./features/serviceSlice";
-import blogSlice, { blogFetch } from "./features/blogSlice";
-import slideSlice, { slideFetch } from "./features/slideSlice";
-import settingSlice, { settingFetch } from "./features/settingSlice";
+import branchSlice, { branchFetch } from "./features/branchSlice";
 const store = configureStore({
   reducer: {
-    advocates: teamSlice,
-    services: serviceSlice,
-    blogs: blogSlice,
-    slides: slideSlice,
-    settings: settingSlice,
+    branches: branchSlice,
   },
 });
-store.dispatch(teamFetch());
-store.dispatch(serviceFetch());
-store.dispatch(blogFetch());
-store.dispatch(slideFetch());
-store.dispatch(settingFetch());
+store.dispatch(branchFetch());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
