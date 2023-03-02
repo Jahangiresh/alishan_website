@@ -73,9 +73,38 @@
     &:hover {
       .romb__img__left {
         left: 50%;
+        animation: exp;
+        animation-duration: 6000ms;
+        animation-timing-function: ease;
+        animation-delay: 6000;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+        animation-fill-mode: both;
+      }
+      @keyframes exp {
+        0% {
+          filter: drop-shadow(0 0 white);
+        }
+        25% {
+          filter: drop-shadow(0 0 white);
+        }
+
+        75% {
+          filter: drop-shadow(7px -7px white);
+        }
+        100% {
+          filter: drop-shadow(0 0 white);
+        }
       }
       .romb__img__right {
         right: 50%;
+        animation: exp;
+        animation-duration: 6000ms;
+        animation-timing-function: ease;
+        animation-delay: 6000;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-play-state: running;
       }
     }
     .romb__img__left {
