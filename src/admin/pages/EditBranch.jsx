@@ -32,7 +32,7 @@ const EditBranch = () => {
         const resp = await axios.get(
           `https://alishancompany.az/api/branch/${id}`
         );
-
+        // console.log(resp.data);
         dispatch({ type: "FETCH_SUCCES", payload: resp.data });
       } catch (error) {
         dispatch({ type: "FETCH_FAIL" });
@@ -49,7 +49,8 @@ const EditBranch = () => {
       telephone: branch && branch.telephone,
       image: branch && branch.image,
       website: branch && branch.website,
-      id: branch && branch.id,
+      address: branch && branch.address,
+      // id: branch && branch.id,
     },
     onSubmit: async (values) => {
       const { token } = localStorage.getItem("user")
@@ -64,6 +65,7 @@ const EditBranch = () => {
             telephone: values.telephone,
             website: values.website,
             image: values.image,
+            address: values.address,
           },
           {
             headers: {
@@ -80,6 +82,7 @@ const EditBranch = () => {
       }
     },
   });
+  console.log(formik.values);
   return (
     <div>
       <div className="createadvocates">
@@ -138,6 +141,17 @@ const EditBranch = () => {
             onChange={formik.handleChange}
             // value={formik.values.phoneNumber}
             defaultValue={branch && branch.telephone}
+          />
+          <label className="createadvocates__forms__label" htmlFor="address">
+            ünvan
+          </label>
+          <input
+            className="createadvocates__forms__input"
+            id="address"
+            name="address"
+            type="address"
+            onChange={formik.handleChange}
+            defaultValue={branch && branch.address}
           />
           <label
             className="createadvocates__forms__label"

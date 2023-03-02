@@ -14,6 +14,7 @@ const CreateBranch = () => {
       telephone: "",
       image: "",
       website: "",
+      address: "",
     },
     onSubmit: (values) => {
       var req = new FormData();
@@ -22,6 +23,7 @@ const CreateBranch = () => {
       req.append("telephone", values.telephone);
       req.append("image", values.image);
       req.append("website", values.website);
+      req.append("address", values.address);
       dispatch(
         createBranch({
           name: req.get("name"),
@@ -29,6 +31,7 @@ const CreateBranch = () => {
           telephone: req.get("telephone"),
           image: req.get("image"),
           website: req.get("website"),
+          address: req.get("address"),
         })
       );
     },
@@ -91,6 +94,17 @@ const CreateBranch = () => {
             maxLength={9}
           />
         </div>
+        <label className="createadvocates__forms__label" htmlFor="role">
+          ünvan
+        </label>
+        <input
+          className="createadvocates__forms__input"
+          id="role"
+          name="role"
+          type="role"
+          onChange={formik.handleChange}
+          value={formik.values.address}
+        />
         <label className="createadvocates__forms__label" htmlFor="role">
           website
         </label>
