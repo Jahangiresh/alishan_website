@@ -1,7 +1,10 @@
 import React from "react";
 import logo from "../assets/images/logoWhite.svg";
 import { CgCopyright } from "react-icons/cg";
+import { useTranslation } from "react-i18next";
 const Footer = () => {
+  const { t } = useTranslation();
+
   let currentYear = new Date().getFullYear();
   return (
     <>
@@ -17,8 +20,8 @@ const Footer = () => {
               alt=""
             />
             <p className="text-light">
-              <span className="txt-bold">Ünvan</span>: Nərimanov rayonu, Həsən
-              Əliyev küçəsi 82F
+              <span className="txt-bold">{t("Ünvan")}</span>: Nərimanov rayonu,
+              Həsən Əliyev küçəsi 82F
             </p>{" "}
             <p className="text-light">
               <span className="txt-bold">Mail</span>: alishan_v-asif@gmail.com

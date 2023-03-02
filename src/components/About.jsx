@@ -10,11 +10,9 @@ const About = () => {
       <div className="about__content">
         <h2 className="txt-title about__content__title">{t("Haqqımızda")}</h2>
         <p className="txt-text m-0">
-          “Alishan” şirkəti 20.07.1995-ci ildən qeydiyyata alınmışdır.
-          Şirkətimizin direktoru Adil İsa Vahid oğludur. “Alishan” şirkətinin
-          əsas fəaliyyəti ixtisaslaşdırılmış mağazalarda əczaçılıq mallarının
-          pərakəndə satışıdır. Bundan əlavə fəaliyyətimizə ixtisaslaşdırılmış
-          mağazalarda pərakəndə satış və otel xidmətləri də daxildir.
+          {t(
+            "“Alishan” şirkəti 20.07.1995-ci ildən qeydiyyata alınmışdır. Şirkətimizin direktoru Adil İsa Vahid oğludur. “Alishan” şirkətinin əsas fəaliyyəti ixtisaslaşdırılmış mağazalarda əczaçılıq mallarının pərakəndə satışıdır. Bundan əlavə fəaliyyətimizə ixtisaslaşdırılmış mağazalarda pərakəndə satış və otel xidmətləri də daxildir."
+          )}
         </p>
       </div>
       <div className="about__faq bg-green">
@@ -23,7 +21,7 @@ const About = () => {
         <div className="about__faq__container my-container">
           <div className="about__faq__container__left">
             <h2 className="txt-title about__faq__container__left__title">
-              Biz nə edirik?
+              {t("Biz nə edirik")}?
             </h2>
             <p className="about__faq__container__left__text txt-text">
               Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc
@@ -33,7 +31,7 @@ const About = () => {
           </div>
           <div className="about__faq__container__right">
             <h2 className="txt-title about__faq__container__right__title">
-              Niyə biz?
+              {t("Niyə biz")}?
             </h2>
             <p className="about__faq__container__right__text txt-text">
               Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc
