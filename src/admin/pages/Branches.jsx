@@ -42,6 +42,7 @@ export default function Branches() {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteBranch(id));
+        console.log(id);
         // window.location.reload(false);
 
         if (isDeleting) {
@@ -86,7 +87,7 @@ export default function Branches() {
               <TableCell align="right" className="adminadvocates__icons">
                 <AiOutlineEdit
                   onClick={() =>
-                    navigate(`/admindfnd001907/branches/${branch.id}`)
+                    navigate(`/adminalshn001907/branches/${branch.id}`)
                   }
                   className="edit__icons"
                 />
@@ -100,7 +101,7 @@ export default function Branches() {
         </TableBody>
       </Table>
       <button
-        onClick={() => navigate("/admindfnd001907/branches/create")}
+        onClick={() => navigate("/adminalshn001907/branches/create")}
         className="adminadvocates__add"
       >
         filial əlavə et <AiOutlinePlusCircle className="plus__icon" />

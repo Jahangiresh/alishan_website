@@ -24,9 +24,8 @@ const About = () => {
               {t("Biz nə edirik")}?
             </h2>
             <p className="about__faq__container__left__text txt-text">
-              Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc
-              porta. Ac lacus pharetra morbi felis ante. In porta sem tortor
-              quam
+            {t(" Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc porta. Ac lacus pharetra morbi felis ante. In porta sem tortorquam")}?
+             
             </p>
           </div>
           <div className="about__faq__container__right">
@@ -34,9 +33,7 @@ const About = () => {
               {t("Niyə biz")}?
             </h2>
             <p className="about__faq__container__right__text txt-text">
-              Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc
-              porta. Ac lacus pharetra morbi felis ante. In porta sem tortor
-              quam
+            {t(" Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc porta. Ac lacus pharetra morbi felis ante. In porta sem tortorquam")}?
             </p>
           </div>
         </div>

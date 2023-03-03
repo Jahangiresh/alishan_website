@@ -60,22 +60,22 @@ const AdminLayout = () => {
       <Router>
         <Routes>
           {user1 ? (
-            <Route path="/admindfnd001907" element={<MainLayout />}>
+            <Route path="/adminalshn001907" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
               <Route
-                path="/admindfnd001907/branches/create"
+                path="/adminalshn001907/branches/create"
                 element={<CreateBranch />}
               />
               <Route
-                path="/admindfnd001907/branches/:id"
+                path="/adminalshn001907/branches/:id"
                 element={<EditBranch />}
               />
 
               {/* <Route path="/admin/login" element={<Login />} /> */}
-              <Route path="/admindfnd001907/branches" element={<Advocates />} />
+              <Route path="/adminalshn001907/branches" element={<Advocates />} />
             </Route>
           ) : (
-            <Route path="/admindfnd001907" element={<Login />} />
+            <Route path="/adminalshn001907" element={<Login />} />
           )}
         </Routes>
       </Router>
