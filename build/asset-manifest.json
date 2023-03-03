@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.78981c05.css",
+    "main.js": "/static/js/main.e1e2c059.js",
+    "static/media/boxicons.svg": "/static/media/boxicons.f80cc694af79b88fde78.svg",
+    "static/media/boxicons.eot": "/static/media/boxicons.dfc882ec9689f820c7c9.eot",
+    "static/media/boxicons.woff": "/static/media/boxicons.1a7e2e2bf3a855e674d4.woff",
+    "static/media/boxicons.ttf": "/static/media/boxicons.22afc8ee5cfc540cddff.ttf",
+    "static/media/avt.jpg": "/static/media/avt.99a4f4efd4e111760a3e.jpg",
+    "static/media/boxicons.woff2": "/static/media/boxicons.60f603cccbdff82a523c.woff2",
+    "static/media/logo.svg": "/static/media/logo.07fe6969dbffbaec359e6cc982ebbd9f.svg",
+    "static/media/logoWhite.svg": "/static/media/logoWhite.82bce3ae64e96ecc26ec999093cda7de.svg",
+    "index.html": "/index.html",
+    "static/media/rombLittleLeft.svg": "/static/media/rombLittleLeft.5bfcc5102fc95454034f364f6bdfd6af.svg",
+    "static/media/rombLittle.svg": "/static/media/rombLittle.d09a434d1c920c7c73e5974528a06ef0.svg",
+    "static/media/rombDesign.svg": "/static/media/rombDesign.fbdd20cbe2c4d9127f58848bc69fd7d1.svg",
+    "static/media/getFetch.cjs": "/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "main.78981c05.css.map": "/static/css/main.78981c05.css.map",
+    "main.e1e2c059.js.map": "/static/js/main.e1e2c059.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78981c05.css",
+    "static/js/main.e1e2c059.js"
+  ]
+}
