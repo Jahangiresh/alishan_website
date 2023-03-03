@@ -24,7 +24,7 @@ const About = () => {
               {t("Biz nə edirik")}?
             </h2>
             <p className="about__faq__container__left__text txt-text">
-            {t(" Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc porta. Ac lacus pharetra morbi felis ante. In porta sem tortorquam")}?
+            {t("Alishan şirkəti əczaçılıqla yanaşı, həm də şirkətin nəzdnində olan market və otellər ilə müxtəlif sahələrdə də xidmət göstərir")}
              
             </p>
           </div>
@@ -33,7 +33,7 @@ const About = () => {
               {t("Niyə biz")}?
             </h2>
             <p className="about__faq__container__right__text txt-text">
-            {t(" Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc porta. Ac lacus pharetra morbi felis ante. In porta sem tortorquam")}?
+            {t("Alishan şirkəti 1995-ci ildən etibarən fəaliyyət göstərir. 25 ildən artıq müddət ərzində biz təcrübə qazanmış və uğur qazanmışıq")}
             </p>
           </div>
         </div>

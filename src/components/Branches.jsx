@@ -19,11 +19,11 @@ const Branches = () => {
             <h2 className="txt-title">
               {t("Fəaliyyətimizdə olan müəssisələr")}
             </h2>
-            <p className="txt-text">
+            {/* <p className="txt-text">
               Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc
               porta. Ac lacus pharetra morbi felis ante. In porta sem tortor
               quam
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="branches__container__ul">

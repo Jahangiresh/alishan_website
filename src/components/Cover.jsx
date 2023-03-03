@@ -1,17 +1,22 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import romb from "../assets/images/rombDesign.svg";
 const Cover = () => {
+  const { t } = useTranslation();
+
+
   return (
+
     <div id="mainpage" className="cover bg-green">
       <div className="cover__container my-container">
         <div className="cover__container__content">
           <h1 className="cover__container__content__title txt-slogan">
-            Lorem ipsum dolor sit amet consectetur.
+          {t("Fərqli xidmətlər tək ünvanda")}.
           </h1>
           <p className="cover__container__content__text txt-text">
-            Lorem ipsum dolor sit amet consectetur. Lectus donec lectus nunc
-            porta. Ac lacus pharetra morbi felis ante. In porta sem tortor quam.
-            Arcu elit elementum dictum nisi bibendum nec aenean ornare commodo.
+          {t(
+           "Şirkət əczaçılıq və nəzdnində fəaliyyət göstərən otel, market şəbəkələri ilə sizlərə bir çox xidməti təklif edir"
+          )}
           </p>
         </div>
         <img className="romb__img" src={romb} alt="" />
