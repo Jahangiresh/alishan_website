@@ -47,7 +47,8 @@ export const createBranch = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(() => {
+      .then((res) => {
+        console.log(res);
         toast.success("yaradıldı");
         window.location = "/admindfnd001907/branches";
       })

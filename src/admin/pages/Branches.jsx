@@ -42,7 +42,7 @@ export default function Branches() {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteBranch(id));
-        window.location.reload(false);
+        // window.location.reload(false);
 
         if (isDeleting) {
           Swal.fire("Silindi!", "Data silindi.", "success");

@@ -32,7 +32,6 @@ const EditBranch = () => {
         const resp = await axios.get(
           `https://alishancompany.az/api/branch/${id}`
         );
-        // console.log(resp.data);
         dispatch({ type: "FETCH_SUCCES", payload: resp.data });
       } catch (error) {
         dispatch({ type: "FETCH_FAIL" });
@@ -42,47 +41,51 @@ const EditBranch = () => {
     getBranch();
   }, []);
 
-  const formik = useFormik({
-    initialValues: {
-      name: branch && branch.name,
-      email: branch && branch.email,
-      telephone: branch && branch.telephone,
-      image: branch && branch.image,
-      website: branch && branch.website,
-      address: branch && branch.address,
-      // id: branch && branch.id,
-    },
-    onSubmit: async (values) => {
-      const { token } = localStorage.getItem("user")
-        ? JSON.parse(localStorage.getItem("user"))
-        : "";
-      try {
-        await axios.put(
-          `https://alishancompany.az/api/branch/${id}`,
-          {
-            name: values.name,
-            email: values.email,
-            telephone: values.telephone,
-            website: values.website,
-            image: values.image,
-            address: values.address,
-          },
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        toast.success("filial dəyişildi");
+  const formik = useFormik(
+    {
+      enableReinitialize: true,
+      initialValues: {
+        name: branch && branch.name,
+        email: branch && branch.email,
+        telephone: branch && branch.telephone,
+        image: branch && branch.image,
+        website: branch && branch.website,
+        address: branch && branch.address,
+      },
 
-        window.location = "/admindfnd001907/branches";
-      } catch (error) {
-        toast.error("sonra cəhd edin!");
-      }
-    },
-  });
-  console.log(formik.values);
+      onSubmit: async (values) => {
+        const { token } = localStorage.getItem("user")
+          ? JSON.parse(localStorage.getItem("user"))
+          : "";
+        console.log("values", values);
+
+        // try {
+        //   await axios.put(
+        //     `https://alishancompany.az/api/branch/${id}`,
+        //     {
+        //       name: values.name,
+        //       email: values.email,
+        //       telephone: values.telephone,
+        //       website: values.website,
+        //       image: values.image,
+        //       address: values.address,
+        //     },
+        //     {
+        //       headers: {
+        //         "Content-Type": "multipart/form-data",
+        //         Authorization: `Bearer ${token}`,
+        //       },
+        //     }
+        //   );
+        //   toast.success("filial dəyişildi");
+
+        //   window.location = "/admindfnd001907/branches";
+        // } catch (error) {
+        //   toast.error("sonra cəhd edin!");
+        // }
+      },
+    });
+  // console.log("values", formik.values);
   return (
     <div>
       <div className="createadvocates">
@@ -103,16 +106,15 @@ const EditBranch = () => {
               formik.setFieldValue("image", e.currentTarget.files[0]);
             }}
           />
-          <label className="createadvocates__forms__label" htmlFor="firstName">
+          <label className="createadvocates__forms__label" htmlFor="name">
             ad
           </label>
           <input
             className="createadvocates__forms__input"
-            id="firstName"
-            name="firstName"
+            id="name"
+            name="name"
             type="text"
             onChange={formik.handleChange}
-            // value={formik.values.firstName}
             defaultValue={branch && branch.name}
           />
           <label className="createadvocates__forms__label" htmlFor="email">
@@ -123,21 +125,22 @@ const EditBranch = () => {
             id="email"
             name="email"
             type="email"
+
             onChange={formik.handleChange}
             // value={formik.values.email}
             defaultValue={branch && branch.email}
           />{" "}
           <label
             className="createadvocates__forms__label"
-            htmlFor="phoneNumber"
+            htmlFor="telephone"
           >
             nömrə
           </label>
           <input
             className="createadvocates__forms__input"
-            id="phoneNumber"
-            name="phoneNumber"
-            type="phoneNumber"
+            id="telephone"
+            name="telephone"
+            type="telephone"
             onChange={formik.handleChange}
             // value={formik.values.phoneNumber}
             defaultValue={branch && branch.telephone}
@@ -155,15 +158,15 @@ const EditBranch = () => {
           />
           <label
             className="createadvocates__forms__label"
-            htmlFor="phoneNumber"
+            htmlFor="website"
           >
             website
           </label>
           <input
             className="createadvocates__forms__input"
-            id="moreInfo"
-            name="moreInfo"
-            type="moreInfo"
+            id="website"
+            name="website"
+            type="website"
             onChange={formik.handleChange}
             defaultValue={branch && branch.webSite}
           />

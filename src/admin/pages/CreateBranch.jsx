@@ -17,13 +17,14 @@ const CreateBranch = () => {
       address: "",
     },
     onSubmit: (values) => {
+      console.log("val", values);
       var req = new FormData();
       req.append("name", values.name);
       req.append("email", values.email);
       req.append("telephone", values.telephone);
-      req.append("image", values.image);
       req.append("website", values.website);
       req.append("address", values.address);
+      req.append("image", values.image)
       dispatch(
         createBranch({
           name: req.get("name"),
@@ -37,7 +38,7 @@ const CreateBranch = () => {
     },
   });
   const [fullnumber, setFullNumber] = useState();
-
+console.log(formik.values.image);
   return (
     <div className="createadvocates">
       <div>
@@ -57,16 +58,16 @@ const CreateBranch = () => {
             formik.setFieldValue("image", e.currentTarget.files[0]);
           }}
         />
-        <label className="createadvocates__forms__label" htmlFor="firstName">
+        <label className="createadvocates__forms__label" htmlFor="name">
           ad
         </label>
         <input
           className="createadvocates__forms__input"
-          id="firstName"
-          name="firstName"
+          id="name"
+          name="name"
           type="text"
           onChange={formik.handleChange}
-          value={formik.values.name}
+          defaultValue={formik.values.name}
         />
         <label className="createadvocates__forms__label" htmlFor="email">
           Email
@@ -77,44 +78,43 @@ const CreateBranch = () => {
           name="email"
           type="email"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          defaultValue={formik.values.email}
         />{" "}
-        <label className="createadvocates__forms__label" htmlFor="phoneNumber">
+        <label className="createadvocates__forms__label" htmlFor="telephone">
           nömrə
         </label>
         <div className="phonenumber__div">
           <input
             className="createadvocates__forms__input"
-            id="phoneNumber"
-            name="phoneNumber"
-            type="phoneNumber"
-            placeholder="0555555555"
+            id="telephone"
+            name="telephone"
+            type="telephone"
             onChange={formik.handleChange}
             defaultValue={formik.values.telephone}
             maxLength={9}
           />
         </div>
-        <label className="createadvocates__forms__label" htmlFor="role">
+        <label className="createadvocates__forms__label" htmlFor="address">
           ünvan
         </label>
         <input
           className="createadvocates__forms__input"
-          id="role"
-          name="role"
-          type="role"
+          id="address"
+          name="address"
+          type="address"
           onChange={formik.handleChange}
-          value={formik.values.address}
+          defaultValue={formik.values.address}
         />
-        <label className="createadvocates__forms__label" htmlFor="role">
+        <label className="createadvocates__forms__label" htmlFor="website">
           website
         </label>
         <input
           className="createadvocates__forms__input"
-          id="role"
-          name="role"
-          type="role"
+          id="website"
+          name="website"
+          type="website"
           onChange={formik.handleChange}
-          value={formik.values.website}
+          defaultValue={formik.values.website}
         />
         <button className="createadvocates__forms__button" type="submit">
           Submit
