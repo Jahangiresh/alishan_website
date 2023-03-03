@@ -42,6 +42,7 @@ export default function Branches() {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteBranch(id));
+        console.log(id);
         // window.location.reload(false);
 
         if (isDeleting) {

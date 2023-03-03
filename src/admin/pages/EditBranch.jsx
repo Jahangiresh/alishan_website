@@ -59,30 +59,30 @@ const EditBranch = () => {
           : "";
         console.log("values", values);
 
-        // try {
-        //   await axios.put(
-        //     `https://alishancompany.az/api/branch/${id}`,
-        //     {
-        //       name: values.name,
-        //       email: values.email,
-        //       telephone: values.telephone,
-        //       website: values.website,
-        //       image: values.image,
-        //       address: values.address,
-        //     },
-        //     {
-        //       headers: {
-        //         "Content-Type": "multipart/form-data",
-        //         Authorization: `Bearer ${token}`,
-        //       },
-        //     }
-        //   );
-        //   toast.success("filial dəyişildi");
+        try {
+          await axios.put(
+            `https://alishancompany.az/api/branch/${id}`,
+            {
+              name: values.name,
+              email: values.email,
+              telephone: values.telephone,
+              website: values.website,
+              image: values.image,
+              address: values.address,
+            },
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          toast.success("filial dəyişildi");
 
-        //   window.location = "/admindfnd001907/branches";
-        // } catch (error) {
-        //   toast.error("sonra cəhd edin!");
-        // }
+          window.location = "/admindfnd001907/branches";
+        } catch (error) {
+          toast.error("sonra cəhd edin!");
+        }
       },
     });
   // console.log("values", formik.values);

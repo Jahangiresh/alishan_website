@@ -32,7 +32,7 @@ export const deleteBranch = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      toast.error(error.response.data.Detail);
+      toast.error("yenidən cəhd edin!");
     }
   }
 );
@@ -53,7 +53,7 @@ export const createBranch = createAsyncThunk(
         window.location = "/admindfnd001907/branches";
       })
       .catch((err) => {
-        toast.error(err.response.data.errors);
+        toast.error("yenidən cəhd edin!");
       });
     return response.data;
   }
