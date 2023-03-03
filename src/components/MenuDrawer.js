@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { useTranslation } from "react-i18next";
 export default function MenuDrawer() {
   const [state, setState] = React.useState({
     top: false,
@@ -23,6 +24,11 @@ export default function MenuDrawer() {
 
     setState({ ...state, [anchor]: open });
   };
+  const { t, i18n } = useTranslation();
+
+  function clickLang(lang) {
+    i18n.changeLanguage(lang);
+  }
   const list = (anchor) => (
     <Box
       className="menudrawer"
@@ -37,29 +43,40 @@ export default function MenuDrawer() {
       <ul className="menu__ul">
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#main">
-            Ana səhifə
+
+            {t(" Ana səhifə")}
           </AnchorLink>
         </li>
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#about">
-            Haqqımızda
+
+            {t("Haqqımızda")}
+
           </AnchorLink>
         </li>
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#activity">
-            Fəaliyyətimiz
+
+            {t("Fəaliyyətimiz")}
+
           </AnchorLink>
         </li>
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#contact">
-            Əlaqə
+
+            {t("Əlaqə")}
+
           </AnchorLink>
         </li>
       </ul>
       <hr />
       <ul className="menu__ul">
-        <li className="menu__ul__li">Azərbaycan</li>
-        <li className="menu__ul__li">English</li>
+        <li
+          onClick={() => clickLang("az")}
+          className="menu__ul__li">Azərbaycan</li>
+        <li
+          onClick={() => clickLang("en")}
+          className="menu__ul__li">English</li>
       </ul>
     </Box>
   );
