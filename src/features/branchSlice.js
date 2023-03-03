@@ -28,6 +28,7 @@ export const deleteBranch = createAsyncThunk(
           },
         }
       );
+      window.location = "/adminalshn001907/branches"
       toast.success("silindi");
 
       return response.data;
@@ -50,7 +51,7 @@ export const createBranch = createAsyncThunk(
       .then((res) => {
         console.log(res);
         toast.success("yaradıldı");
-        window.location = "/admindfnd001907/branches";
+        window.location = "/adminalshn001907/branches";
       })
       .catch((err) => {
         toast.error("yenidən cəhd edin!");

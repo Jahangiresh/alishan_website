@@ -79,7 +79,7 @@ const EditBranch = () => {
           );
           toast.success("filial dəyişildi");
 
-          window.location = "/admindfnd001907/branches";
+          window.location = "/adminalshn001907/branches";
         } catch (error) {
           toast.error("sonra cəhd edin!");
         }
