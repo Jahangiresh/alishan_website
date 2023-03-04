@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import AnchorLink from "react-anchor-link-smooth-scroll";
@@ -43,40 +42,33 @@ export default function MenuDrawer() {
       <ul className="menu__ul">
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#main">
-
             {t(" Ana səhifə")}
           </AnchorLink>
         </li>
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#about">
-
             {t("Haqqımızda")}
-
           </AnchorLink>
         </li>
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#activity">
-
             {t("Fəaliyyətimiz")}
-
           </AnchorLink>
         </li>
         <li className="menu__ul__li">
           <AnchorLink className="default-link" offset="100" href="#contact">
-
             {t("Əlaqə")}
-
           </AnchorLink>
         </li>
       </ul>
       <hr />
       <ul className="menu__ul">
-        <li
-          onClick={() => clickLang("az")}
-          className="menu__ul__li">Azərbaycan</li>
-        <li
-          onClick={() => clickLang("en")}
-          className="menu__ul__li">English</li>
+        <li onClick={() => clickLang("az")} className="menu__ul__li">
+          Azərbaycan
+        </li>
+        <li onClick={() => clickLang("en")} className="menu__ul__li">
+          English
+        </li>
       </ul>
     </Box>
   );

@@ -33,14 +33,25 @@ const Branches = () => {
                 <div className="branches__container__ul__li__content">
                   <h3 className="txt-title txt-green"> • {branch.name}</h3>
                   <p>
-                    <span className="txt-bold">{t("Ünvan")}</span>: {branch.address}
+                    <span className="txt-bold">{t("Ünvan")}</span>:{" "}
+                    {branch.address}
                   </p>
                   <p>
-                    <span className="txt-bold">{t("Tel")}</span>: {branch.telephone}
+                    <span className="txt-bold">{t("Tel")}</span>:{" "}
+                    {branch.telephone}
                   </p>
                   <p>
-                    <span className="txt-bold">{t("Mail")}</span>: {branch.email}
+                    <span className="txt-bold">{t("Mail")}</span>:{" "}
+                    {branch.email}
                   </p>
+                  {branch.webSite ? (
+                    <p>
+                      <span className="txt-bold">{t("Web")}</span>:{" "}
+                      {branch.webSite}
+                    </p>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="branches__container__ul__li__image">
                   <img
